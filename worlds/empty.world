@@ -9,9 +9,36 @@
     <include>
       <uri>model://ground_plane</uri>
     </include>
-    <include>
+    <!--include>
       <uri>model://asphalt_plane</uri>
+    </include> -->
+    <include>
+      <uri>model://ocean</uri>
+      <pose>0 0 0 0 0 0</pose>
     </include>
+    <model name="box">
+      <pose>0 0 1.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>1 1 0.1</size>
+            </box>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>1 1 0.11</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+
+      <plugin name="push_animate" filename="libanimated_box.so"/>
+    </model>
+      
     <physics name='default_physics' default='0' type='ode'>
       <gravity>0 0 -9.8066</gravity>
       <ode>
