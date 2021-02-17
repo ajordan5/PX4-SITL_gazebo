@@ -36,7 +36,7 @@ namespace gazebo
               // name the animation "test",
               // make it last 55555conds,
               // and set it on a repeat loop
-              new gazebo::common::PoseAnimation("test", 150.0, true));
+              new gazebo::common::PoseAnimation("test", 100.0, true));
 
         gazebo::common::PoseKeyFrame *key;
 
@@ -46,26 +46,30 @@ namespace gazebo
         key->Rotation(ignition::math::Quaterniond(0, 0, 0));
 
         // set waypoint location after 10 seconds
+        key = anim->CreateKeyFrame(10.0);
+        key->Translation(ignition::math::Vector3d(-10, -10, 0));
+        key->Rotation(ignition::math::Quaterniond(0, 0, 0));
+
+
         key = anim->CreateKeyFrame(30.0);
-        key->Translation(ignition::math::Vector3d(-20, -20, 0));
+        key->Translation(ignition::math::Vector3d(10, -10, 0));
         key->Rotation(ignition::math::Quaterniond(0, 0, 0));
 
 
-        key = anim->CreateKeyFrame(60.0);
-        key->Translation(ignition::math::Vector3d(-25, -25, 0));
+        key = anim->CreateKeyFrame(50.0);
+        key->Translation(ignition::math::Vector3d(10, 10, 0));
         key->Rotation(ignition::math::Quaterniond(0, 0, 0));
 
+
+        key = anim->CreateKeyFrame(70.0);
+        key->Translation(ignition::math::Vector3d(-10, 10, 0));
+        key->Rotation(ignition::math::Quaterniond(0, 0, 0));
 
         key = anim->CreateKeyFrame(90.0);
-        key->Translation(ignition::math::Vector3d(-25, 25, 0));
+        key->Translation(ignition::math::Vector3d(-10, -10, 0));
         key->Rotation(ignition::math::Quaterniond(0, 0, 0));
 
-
-        key = anim->CreateKeyFrame(120.0);
-        key->Translation(ignition::math::Vector3d(-20, -20, 0));
-        key->Rotation(ignition::math::Quaterniond(0, 0, 0));
-
-        key = anim->CreateKeyFrame(150.0);
+          key = anim->CreateKeyFrame(100.0);
         key->Translation(ignition::math::Vector3d(-5, -5, 0));
         key->Rotation(ignition::math::Quaterniond(0, 0, 0));
         // set final location equal to starting location
